@@ -1,0 +1,34 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.15'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id "org.sonarqube" version "4.3.1.3277"
+}
+sonar {
+	properties {
+		property "sonar.projectKey", "demo3"
+		property "sonar.organization", "myOrganization"
+		property "sonar.host.url", "http://localhost:9000"
+		property "sonar.token", "sqa_e73f1768c026acf9df1e156a07e89c0185bc6789"
+
+	}
+}
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '11'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
